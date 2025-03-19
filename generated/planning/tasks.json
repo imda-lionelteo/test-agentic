@@ -1,0 +1,161 @@
+{
+    "tasks": [
+        {
+            "id": "TASK-1",
+            "name": "Design Registration Form",
+            "description": "Design the UI/UX of the registration form for new users, including fields for email, full name, and password, as well as OIDC options.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Wireframes and design mockups are approved; includes email, full name, password, and OIDC buttons; responsive design.",
+            "technicalNotes": "Use design tools like Figma; ensure accessibility and mobile responsiveness.",
+            "assignee": "UX Designer",
+            "estimatedHours": 8,
+            "linkedIssues": ["STORY-1.1"]
+        },
+        {
+            "id": "TASK-2",
+            "name": "Implement Email Verification",
+            "description": "Develop backend functionality to verify user email addresses and send welcome emails upon successful registration.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Emails are sent with correct templates; verification links work; user status updates to active upon confirmation.",
+            "technicalNotes": "Integrate with third-party email service; implement secure verification tokens.",
+            "assignee": "Backend Developer",
+            "estimatedHours": 10,
+            "linkedIssues": ["STORY-1.1"]
+        },
+        {
+            "id": "TASK-3",
+            "name": "Develop Login Form and Validation",
+            "description": "Implement the login form for returning users and validate user credentials against stored data.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Login form accepts both traditional and OIDC authentication; correct error messages and rate limiting in effect.",
+            "technicalNotes": "Implement JWT/session authentication; include CSRF protection and logging.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 8,
+            "linkedIssues": ["STORY-1.2"]
+        },
+        {
+            "id": "TASK-4",
+            "name": "Develop Tuition Request Form",
+            "description": "Create the form for requesters to input tuition requests with address, time slots, subjects, and fee details.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Form correctly captures all required fields, supports draft saving, and validates inputs before submission.",
+            "technicalNotes": "Ensure integration with geolocation API and calendar picker; client-side validation required.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 12,
+            "linkedIssues": ["STORY-2.1"]
+        },
+        {
+            "id": "TASK-5",
+            "name": "Integrate Geolocation and Calendar Components",
+            "description": "Integrate third-party APIs for geolocation assistance and calendar/time picker into the tuition request form.
+",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Geolocation suggests addresses accurately; calendar allows multiple timeslot selection with constraints on past dates.",
+            "technicalNotes": "Utilize popular libraries/APIs; ensure performance optimization.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 10,
+            "linkedIssues": ["STORY-2.1"]
+        },
+        {
+            "id": "TASK-6",
+            "name": "Implement Request Dashboard UI",
+            "description": "Develop a dashboard for requesters to view, edit, and manage their tuition requests with filtering and sorting options.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Dashboard displays requests with status indicators, provides pagination, sorting, and filtering functionalities.",
+            "technicalNotes": "Optimize queries for performance; consider lazy loading for large datasets.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 10,
+            "linkedIssues": ["STORY-2.2"]
+        },
+        {
+            "id": "TASK-7",
+            "name": "Develop Tutor Profile Creation Module",
+            "description": "Develop the module that allows tutors to create and update their profiles including file upload for profile pictures.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Profile form captures subjects, experience, fee range, and optional fields; file upload is secure; preview and completion percentage work accurately.",
+            "technicalNotes": "Implement secure file uploads; schedule re-calculation tasks for expertise level; ensure versioning.",
+            "assignee": "Full Stack Developer",
+            "estimatedHours": 15,
+            "linkedIssues": ["STORY-3.1"]
+        },
+        {
+            "id": "TASK-8",
+            "name": "Create Tutor Offers Management Dashboard",
+            "description": "Build the dashboard where tutors can view and filter incoming offers and access detailed information for each offer.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Dashboard displays offers with status filters and batch selection; supports detailed view of offer information, including maps if location available.",
+            "technicalNotes": "Integrate geolocation services; implement read-receipts and performance optimizations.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 12,
+            "linkedIssues": ["STORY-3.2"]
+        },
+        {
+            "id": "TASK-9",
+            "name": "Implement Offer Acceptance Flow",
+            "description": "Develop the backend functionality to allow tutors to accept offers, update offer/request status, and handle concurrency issues.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Tutor can select and accept offers; request status updates to accepted if available; feedback provided for each acceptance attempt.",
+            "technicalNotes": "Use database transactions; implement race condition handling and audit logging.",
+            "assignee": "Backend Developer",
+            "estimatedHours": 10,
+            "linkedIssues": ["STORY-3.3"]
+        },
+        {
+            "id": "TASK-10",
+            "name": "Setup Notification Background Service",
+            "description": "Develop and deploy a background service that checks for new offers every 5 minutes and triggers notifications.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Service runs every 5 minutes, identifies offers with status 'new', and queues them for notification; logs each run with success/failure.",
+            "technicalNotes": "Implement with a message queue and ensure rate limiting is in place; use cron jobs or similar scheduling.",
+            "assignee": "DevOps Engineer",
+            "estimatedHours": 8,
+            "linkedIssues": ["STORY-4.1"]
+        },
+        {
+            "id": "TASK-11",
+            "name": "Develop Email Notification Templates",
+            "description": "Design and implement email templates for notifying tutors of new offers with actionable links.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Emails include all necessary details, a call-to-action button, and support direct offer acceptance via secure tokens.",
+            "technicalNotes": "Create responsive email templates; ensure proper integration with the notification service.",
+            "assignee": "UI/UX Designer",
+            "estimatedHours": 6,
+            "linkedIssues": ["STORY-4.1", "STORY-4.2"]
+        },
+        {
+            "id": "TASK-12",
+            "name": "Design and Optimize Matching Algorithm",
+            "description": "Design the core matching algorithm that matches tuition requests with tutors based on multiple criteria, ensuring performance and scalability.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Algorithm matches based on education level, subject, fee, and expertise; returns paginated, sorted results with match quality scores; performs well under load.",
+            "technicalNotes": "Implement efficient indexing and caching; monitor performance metrics and allow tuning without code changes.",
+            "assignee": "Data Engineer",
+            "estimatedHours": 12,
+            "linkedIssues": ["STORY-5.1"]
+        },
+        {
+            "id": "TASK-13",
+            "name": "Implement Match Quality Indicator UI",
+            "description": "Develop the front-end component that displays match quality scores and visual indicators for both requesters and tutors.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "UI displays a percentage score with visual indicators; provides explanations for match decisions and suggestions for improvements.",
+            "technicalNotes": "Ensure design is intuitive and incorporates feedback; integrate with matching algorithm results.",
+            "assignee": "Frontend Developer",
+            "estimatedHours": 8,
+            "linkedIssues": ["STORY-5.2"]
+        }
+    ]
+}

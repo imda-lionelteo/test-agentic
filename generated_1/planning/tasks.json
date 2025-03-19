@@ -1,0 +1,62 @@
+[
+    {
+        "id": "TASK-1",
+        "name": "Registration Form Validation",
+        "description": "Implement client-side and server-side validation for the registration form ensuring proper input formats and error messaging.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Form validates email format, full name, and password; displays error messages for invalid inputs.",
+        "technicalNotes": "Utilize built-in validation libraries for both front-end and back-end; ensure cross-browser compatibility.",
+        "assignee": "Front-end Developer",
+        "estimatedHours": 4,
+        "linkedIssues": ["STORY-1.1"]
+    },
+    {
+        "id": "TASK-2",
+        "name": "Password Encryption and Storage",
+        "description": "Implement password hashing and secure storage mechanism for user credentials.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Passwords must be hashed using a secure algorithm (e.g., bcrypt or Argon2) and stored with unique salts.",
+        "technicalNotes": "Ensure compliance with security best practices and use proven libraries for encryption.",
+        "assignee": "Back-end Developer",
+        "estimatedHours": 6,
+        "linkedIssues": ["STORY-1.1"]
+    },
+    {
+        "id": "TASK-3",
+        "name": "Tutor Profile API Development",
+        "description": "Develop API endpoints to support tutor profile creation, retrieval, update, and deletion.",
+        "status": "TODO",
+        "priority": "Medium",
+        "acceptanceCriteria": "API endpoints support complete CRUD operations, validate inputs, and handle file uploads securely.",
+        "technicalNotes": "Implement secure file uploads, versioning for profile updates, and ensure robust error handling.",
+        "assignee": "Back-end Developer",
+        "estimatedHours": 8,
+        "linkedIssues": ["STORY-3.1"]
+    },
+    {
+        "id": "TASK-4",
+        "name": "Implement Tutor Search Algorithm",
+        "description": "Develop a search algorithm to match tutors with tuition requests based on multiple criteria.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Algorithm returns a sorted list of tutor profiles based on education level, subject match, fee expectation, and expertise; supports pagination.",
+        "technicalNotes": "Optimize database queries, implement caching for frequent searches, and consider fuzzy matching improvements.",
+        "assignee": "Data Engineer",
+        "estimatedHours": 10,
+        "linkedIssues": ["STORY-2.3"]
+    },
+    {
+        "id": "TASK-5",
+        "name": "Email Notification Service",
+        "description": "Set up a background service to send email notifications to tutors for new offers.",
+        "status": "TODO",
+        "priority": "Medium",
+        "acceptanceCriteria": "Service should poll for new offers every 5 minutes and send emails with appropriate offer details and direct links.",
+        "technicalNotes": "Implement a message queue, retry mechanism for failed notifications, and integrate with an email service API.",
+        "assignee": "DevOps Engineer",
+        "estimatedHours": 5,
+        "linkedIssues": ["STORY-4.1"]
+    }
+]

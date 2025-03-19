@@ -1,0 +1,62 @@
+[
+    {
+        "id": "EPIC-1",
+        "name": "User Authentication and Registration",
+        "description": "User Authentication and Registration epic includes user registration and login functionalities, validating credentials and integrating OIDC.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Registration form must validate input, generate unique user IDs, and send a welcome email upon successful registration.",
+        "technicalNotes": "Implement password hashing, secure OAuth token storage, and database indexing on email and user ID.",
+        "assignee": "",
+        "estimatedHours": 40,
+        "linkedIssues": ["STORY-1.1", "STORY-1.2"]
+    },
+    {
+        "id": "EPIC-2",
+        "name": "Requester Functionality",
+        "description": "Requester functionalities for creating tuition requests, viewing and managing them, and searching for tutors.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Tuition request creation, dashboard management, tutor search, and offer sending must function seamlessly.",
+        "technicalNotes": "Implement client-side validation, integrate geolocation APIs, and optimize database queries.",
+        "assignee": "",
+        "estimatedHours": 60,
+        "linkedIssues": ["STORY-2.1", "STORY-2.2", "STORY-2.3", "STORY-2.4"]
+    },
+    {
+        "id": "EPIC-3",
+        "name": "Tutor Functionality",
+        "description": "Tutor functionalities for profile creation, managing received offers, and accepting tuition opportunities.",
+        "status": "TODO",
+        "priority": "Medium",
+        "acceptanceCriteria": "Tutor can create profiles, view offers, and accept offers with proper status updates.",
+        "technicalNotes": "Secure file uploads, handle concurrency in offer acceptance, and implement audit logging.",
+        "assignee": "",
+        "estimatedHours": 50,
+        "linkedIssues": ["STORY-3.1", "STORY-3.2", "STORY-3.3"]
+    },
+    {
+        "id": "EPIC-4",
+        "name": "Notification System",
+        "description": "System notifications for tutors regarding new offers, using periodic checks and email alerts.",
+        "status": "TODO",
+        "priority": "Medium",
+        "acceptanceCriteria": "Background service identifies new offers and sends personalized email notifications with offer details.",
+        "technicalNotes": "Implement message queues, email templates, retry logic, and logging for notifications.",
+        "assignee": "",
+        "estimatedHours": 30,
+        "linkedIssues": ["STORY-4.1", "STORY-4.2"]
+    },
+    {
+        "id": "EPIC-5",
+        "name": "Match-making System",
+        "description": "Matching system to connect requesters with tutors based on criteria such as education level, subject, fee, and expertise.",
+        "status": "TODO",
+        "priority": "High",
+        "acceptanceCriteria": "Algorithm must match profiles accurately and return sorted, paginated results.",
+        "technicalNotes": "Include efficient indexing, caching mechanisms, and performance metric tracking.",
+        "assignee": "",
+        "estimatedHours": 70,
+        "linkedIssues": ["STORY-5.1", "STORY-5.2"]
+    }
+]

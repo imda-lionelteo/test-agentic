@@ -1,0 +1,160 @@
+{
+    "stories": [
+        {
+            "id": "STORY-1.1",
+            "name": "User Registration for New Users",
+            "description": "As a new user, I want to register with my email address so that I can create an account on Tuition Central.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Registration form includes fields for email, full name, and password; supports OIDC via Google or Facebook; validates email format; generates unique user ID; sets user type and status; sends a welcome email.",
+            "technicalNotes": "Implement password hashing, secure storage for OAuth tokens, and database indexes on email and user ID.",
+            "assignee": null,
+            "estimatedHours": 15,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-1.2",
+            "name": "User Login for Returning Users",
+            "description": "As a returning user, I want to log in with my credentials so that I can access my account.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Login form accepts email and password or OIDC authentication; validates credentials; handles rate limiting, session management, and provides a 'Remember me' option; offers password reset functionality.",
+            "technicalNotes": "Implement JWT or session-based authentication, CSRF protection, and logging of authentication attempts.",
+            "assignee": null,
+            "estimatedHours": 10,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-2.1",
+            "name": "Create Tuition Request",
+            "description": "As a requester, I want to create a tuition request so that I can find suitable tutors.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Form includes address (with optional geolocation), calendar/time picker, education level dropdown, multi-select subjects, tutor expertise selection, fee input, and start date picker; saves the request with 'open' status and unique request ID; provides draft saving functionality.",
+            "technicalNotes": "Implement client-side validation, integrate geolocation API, and use optimized queries for database performance.",
+            "assignee": null,
+            "estimatedHours": 20,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-2.2",
+            "name": "View and Manage Tuition Requests",
+            "description": "As a requester, I want to view all my tuition requests so that I can manage them.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Dashboard displays paginated list of requests with key details; supports sorting and filtering; shows detailed view and options to edit, cancel, or archive requests with 'open' or completed status.",
+            "technicalNotes": "Implement optimized queries and lazy loading for performance.",
+            "assignee": null,
+            "estimatedHours": 15,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-2.3",
+            "name": "Search for Matching Tutors",
+            "description": "As a requester, I want to search for matching tutors so that I can offer them tuition opportunities.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "User can select an open request and trigger a search; matching is based on education level, subject, fee, and expertise; returns paginated tutor profiles with sorting and filtering options; provides suggestions when few matches are found.",
+            "technicalNotes": "Implement an efficient search algorithm with caching and fuzzy matching if needed.",
+            "assignee": null,
+            "estimatedHours": 18,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-2.4",
+            "name": "Send Offers to Tutors",
+            "description": "As a requester, I want to send offers to selected tutors so that I can engage their services.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Allows checkbox selection for multiple tutors, activates 'Send Offer' button only when selection is made, includes confirmation dialog and optional message; creates offer entries with status set to 'new'; displays confirmation and updates requester's 'Sent Offers'.",
+            "technicalNotes": "Implement transaction handling, notification queuing, and enforce offer limits per request.",
+            "assignee": null,
+            "estimatedHours": 12,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-3.1",
+            "name": "Tutor Profile Creation",
+            "description": "As a tutor, I want to create my profile so that I can be matched with appropriate tuition requests.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Profile creation with multi-select for subjects and education levels, numerical fields for experience and student outcomes, fee range selector, optional fields for qualifications and profile picture, and a preview with completion percentage.",
+            "technicalNotes": "Implement secure file upload, scheduled tasks for expertise recalculation, and versioning for profile updates.",
+            "assignee": null,
+            "estimatedHours": 25,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-3.2",
+            "name": "View and Manage Offers",
+            "description": "As a tutor, I want to view and manage offers so that I can accept tuition opportunities.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Dashboard displays offers with filters for status; shows detailed offer information including requester details, subject, fee, and timeslot; supports batch selection and additional information requests.",
+            "technicalNotes": "Implement read receipts, geolocation computations, and optimize performance for large data sets.",
+            "assignee": null,
+            "estimatedHours": 15,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-3.3",
+            "name": "Accept Tuition Offers",
+            "description": "As a tutor, I want to accept offers so that I can confirm tuition arrangements.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Allows selection of offers and activates the 'Accept' button; confirms acceptance with a dialog; updates the request status to 'accepted' and logs acceptance time; notifies requester with contact details.",
+            "technicalNotes": "Implement database transactions to manage race conditions and include audit logging for acceptance actions.",
+            "assignee": null,
+            "estimatedHours": 10,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-4.1",
+            "name": "Automated Tutor Notifications",
+            "description": "As a system administrator, I want the system to send notifications to tutors about new offers so that they can respond promptly.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Background service runs every 5 minutes to identify new offers; sends personalized email with offer details and link; updates offer status to 'notified' and logs activity with retry and rate limiting.",
+            "technicalNotes": "Implement message queuing, email templating, secure tokens for direct actions, and monitoring for notification service.",
+            "assignee": null,
+            "estimatedHours": 12,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-4.2",
+            "name": "Tutor Notification Reception",
+            "description": "As a tutor, I want to receive notifications about new offers so that I can respond to them promptly.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "Tutor receives email and in-app notifications with requester info, subject, fee, timeslots, and a call-to-action; includes options for direct offer acceptance and managing preferences.",
+            "technicalNotes": "Implement secure tokens for direct actions, consider push notifications, and track email open/click metrics.",
+            "assignee": null,
+            "estimatedHours": 10,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-5.1",
+            "name": "Matching Requesters with Tutors",
+            "description": "As a system administrator, I want the system to match requesters with tutors based on criteria so that appropriate connections are made.",
+            "status": "To Do",
+            "priority": "High",
+            "acceptanceCriteria": "Implements a matching algorithm based on education level, subject, fee compatibility, and expertise with paginated and sorted results including match quality scores.",
+            "technicalNotes": "Implement efficient indexing, caching, and performance monitoring with configuration options for tuning the algorithm.",
+            "assignee": null,
+            "estimatedHours": 20,
+            "linkedIssues": []
+        },
+        {
+            "id": "STORY-5.2",
+            "name": "Display Match Quality Indicators",
+            "description": "As a requester or tutor, I want to see match quality indicators so that I can make informed decisions.",
+            "status": "To Do",
+            "priority": "Medium",
+            "acceptanceCriteria": "System calculates and displays a match percentage or score with visual indicators and explanations for match decisions, along with suggestions for improving match quality.",
+            "technicalNotes": "Develop an algorithm for calculating match quality, design intuitive visual indicators, and implement a feedback loop for improvements.",
+            "assignee": null,
+            "estimatedHours": 10,
+            "linkedIssues": []
+        }
+    ]
+}
