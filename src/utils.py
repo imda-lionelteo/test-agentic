@@ -13,7 +13,7 @@ def write_to_file(content: str, folder_name: str, filename: str):
     Returns:
         str: A message indicating the content was successfully written and the path to the file.
     """
-    directory = f"generated/{folder_name}"
+    directory = f"artifacts/{folder_name}"
     if not os.path.exists(directory):
         os.makedirs(directory)
     file_path = os.path.join(directory, filename)

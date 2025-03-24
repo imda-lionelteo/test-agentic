@@ -1,4 +1,4 @@
-from agents import Agent, Runner, TResponseInputItem
+from agents import Agent, ModelSettings, Runner, TResponseInputItem
 from pydantic import BaseModel
 
 from src.agents_tools import web_search_tool
@@ -109,6 +109,9 @@ draw_system_architecture_agent = Agent(
     """,
     tools=[web_search_tool],
     output_type=DiagramContext,
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 draw_class_diagram_agent = Agent(
@@ -152,6 +155,9 @@ draw_class_diagram_agent = Agent(
     """,
     tools=[web_search_tool],
     output_type=DiagramContext,
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 draw_sequence_diagram_agent = Agent(
@@ -185,6 +191,9 @@ draw_sequence_diagram_agent = Agent(
     """,
     tools=[web_search_tool],
     output_type=list[DiagramContext],
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 draw_user_interface_agent = Agent(
@@ -217,6 +226,9 @@ draw_user_interface_agent = Agent(
     """,
     tools=[web_search_tool],
     output_type=DiagramContext,
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 diagram_consistency_check_agent = Agent(
@@ -282,6 +294,9 @@ diagram_consistency_check_agent = Agent(
     """,
     output_type=Feedback,
     tools=[web_search_tool],
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 

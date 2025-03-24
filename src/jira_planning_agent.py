@@ -3,7 +3,7 @@ from dataclasses import field
 from enum import Enum
 from typing import Optional, Union
 
-from agents import Agent, Runner, TResponseInputItem
+from agents import Agent, ModelSettings, Runner, TResponseInputItem
 from pydantic import BaseModel
 
 from src.agents_tools import web_search_tool
@@ -268,6 +268,9 @@ jira_epic_gen_agent = Agent(
     """,
     tools=[web_search_tool],
     output_type=Epic,
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 jira_consistency_check_agent = Agent(
@@ -329,6 +332,9 @@ jira_consistency_check_agent = Agent(
     """,
     output_type=Feedback,
     tools=[web_search_tool],
+    model_settings=ModelSettings(
+        tool_choice="auto",
+    ),
 )
 
 
@@ -358,57 +364,62 @@ async def perform_jira_planning(input_doc: str) -> tuple[JiraContext, list[Feedb
         Iteratively runs the Jira generation and consistency check agents until the epics are consistent or the 
         maximum number of tries is reached.
         """
-        # Prepare and run the Jira generation agent for each epic
-        epic_generation_input_items: list[list[TResponseInputItem]] = [
-            [
-                {
-                    "content": f"Thought Instructions: {jira_planning_result.final_output[i].jira_thought_instructions}",
-                    "role": "user",
-                },
-                *judge_feedbacks,
+        try:
+            # Prepare and run the Jira generation agent for each epic
+            epic_generation_input_items: list[list[TResponseInputItem]] = [
+                [
+                    {
+                        "content": f"Thought Instructions: {jira_planning_result.final_output[i].jira_thought_instructions}",
+                        "role": "user",
+                    },
+                    *judge_feedbacks,
+                ]
+                for i in range(number_of_identified_epics)
             ]
-            for i in range(number_of_identified_epics)
-        ]
-        epic_results = await asyncio.gather(
-            *[
-                Runner.run(jira_epic_gen_agent, input_item)
-                for input_item in epic_generation_input_items
+            epic_results = await asyncio.gather(
+                *[
+                    Runner.run(jira_epic_gen_agent, input_item)
+                    for input_item in epic_generation_input_items
+                ]
+            )
+
+            # Prepare and run the consistency check agent between the generated epics and the original document
+            consistency_check_input_items = [
+                {"content": f"Original Doc: {input_doc}", "role": "user"},
             ]
-        )
+            for index, (jira_planning_result, epic_result) in enumerate(
+                zip(jira_planning_result.final_output, epic_results), 1
+            ):
+                consistency_check_input_items.append(
+                    {
+                        "content": f"Thought Instructions {index}: {jira_planning_result.jira_thought_instructions}",
+                        "role": "user",
+                    },
+                )
+                consistency_check_input_items.append(
+                    {
+                        "content": f"Jira Context {index}: {epic_result.final_output}",
+                        "role": "user",
+                    }
+                )
+            consistency_check_result = await Runner.run(
+                jira_consistency_check_agent,
+                input=consistency_check_input_items,
+                max_turns=100,
+            )
 
-        # Prepare and run the consistency check agent between the generated epics and the original document
-        consistency_check_input_items = [
-            {"content": f"Original Doc: {input_doc}", "role": "user"},
-        ]
-        for index, (jira_planning_result, epic_result) in enumerate(
-            zip(jira_planning_result.final_output, epic_results), 1
-        ):
-            consistency_check_input_items.append(
-                {
-                    "content": f"Thought Instructions {index}: {jira_planning_result.jira_thought_instructions}",
-                    "role": "user",
-                },
-            )
-            consistency_check_input_items.append(
-                {
-                    "content": f"Jira Context {index}: {epic_result.final_output}",
-                    "role": "user",
-                }
-            )
-        consistency_check_result = await Runner.run(
-            jira_consistency_check_agent,
-            input=consistency_check_input_items,
-            max_turns=100,
-        )
+            judge_feedbacks.append(consistency_check_result.final_output.feedback)
+            if consistency_check_result.final_output.score == "pass":
+                is_epics_consistent = True
+            else:
+                print(
+                    f"Inconsistent result: {consistency_check_result.final_output.feedback}"
+                )
+                is_epics_consistent = False
+                attempts += 1
 
-        judge_feedbacks.append(consistency_check_result.final_output.feedback)
-        if consistency_check_result.final_output.score == "pass":
-            is_epics_consistent = True
-        else:
-            print(
-                f"Inconsistent result: {consistency_check_result.final_output.feedback}"
-            )
-            is_epics_consistent = False
+        except Exception as e:
+            print(f"An error occurred: {e}. Retrying...")
             attempts += 1
 
     if is_epics_consistent:

@@ -1,0 +1,1136 @@
+{
+    "epics": [
+        {
+            "id": "EPIC-1",
+            "name": "User Authentication and Registration",
+            "description": "This epic focuses on implementing a robust user authentication and registration system, providing foundational functionalities for user interactions.",
+            "priority": "High",
+            "child_issues": [
+                {
+                    "story_id": "STORY-1.1",
+                    "name": "Registration for new users",
+                    "description": "Implement a system for new users to register on the platform.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Users can register using email, full name, and password.",
+                        "Registration supports OIDC authentication with Google and Facebook.",
+                        "Emails are validated and checked against existing accounts.",
+                        "Unique user IDs are generated and stored securely.",
+                        "Passwords are hashed and OAuth tokens stored securely.",
+                        "Users receive a welcome/verification email upon registration.",
+                        "Database indexes are created for email and user ID."
+                    ],
+                    "technical_notes": [
+                        "Ensure compliance with privacy and data protection laws.",
+                        "Use BCrypt for password hashing.",
+                        "Leverage email verification service."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": [
+                        "TASK-1.1.1",
+                        "TASK-1.1.2",
+                        "TASK-1.1.3",
+                        "TASK-1.1.4",
+                        "TASK-1.1.5",
+                        "TASK-1.1.6",
+                        "TASK-1.1.7"
+                    ]
+                },
+                {
+                    "task_id": "TASK-1.1.1",
+                    "name": "Design and implement the registration form",
+                    "description": "Create a user-friendly registration form with required fields: email, full name, and password.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Form fields are correctly labeled and validated.",
+                        "UI is responsive and intuitive."
+                    ],
+                    "technical_notes": [
+                        "Use React for frontend.",
+                        "Field validation both on client and server side."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 8.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.2",
+                    "name": "Integrate OIDC authentication with Google and Facebook",
+                    "description": "Allow users to register using their Google or Facebook accounts through OIDC integration.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Successful integration with Google and Facebook OIDC.",
+                        "Seamless registration experience for users using social accounts."
+                    ],
+                    "technical_notes": [
+                        "Use openid-client library for integration.",
+                        "Ensure proper token handling and storage."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 12.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.3",
+                    "name": "Validate email format and check against existing accounts",
+                    "description": "Ensure that the email provided during registration is correctly formatted and does not already exist in the database.",
+                    "status": "TODO",
+                    "priority": "Critical",
+                    "acceptance_criteria": [
+                        "Email format validation is robust.",
+                        "Duplicate accounts are flagged and handled gracefully."
+                    ],
+                    "technical_notes": [
+                        "Use regex for email validation.",
+                        "Consult database for existing email check."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 6.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.4",
+                    "name": "Generate a unique user ID and store user details",
+                    "description": "Create a unique identifier for each user and store the registration details securely.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Unique user ID is generated for each registration.",
+                        "All user details are stored securely in the database."
+                    ],
+                    "technical_notes": [
+                        "Consider UUID for unique user ID.",
+                        "Ensure compliance with secure storage best practices."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 4.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.5",
+                    "name": "Implement password hashing and secure storage of OAuth tokens",
+                    "description": "Ensure that all passwords are hashed and OAuth tokens stored securely.",
+                    "status": "TODO",
+                    "priority": "Critical",
+                    "acceptance_criteria": [
+                        "Passwords are hashed before storage.",
+                        "OAuth tokens are stored securely and encrypted."
+                    ],
+                    "technical_notes": [
+                        "Use BCrypt for password hashing.",
+                        "Implement encrypted storage solutions for tokens."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.6",
+                    "name": "Set user status to 'active' and trigger a welcome/verification email",
+                    "description": "Set the user's status to active and send a welcome or verification email upon registration completion.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "User status is accurately set to 'active'.",
+                        "A welcome/verification email is sent immediately after registration."
+                    ],
+                    "technical_notes": [
+                        "Integrate with email service API.",
+                        "Ensure the timing and deliverability of emails."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 5.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.1.7",
+                    "name": "Create database indexes for email and user ID",
+                    "description": "Improve database performance by creating indexes for email and user ID fields.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Indexes are created for email and user ID fields.",
+                        "Performance improvements are measured and documented."
+                    ],
+                    "technical_notes": [
+                        "Consult database administrator for index creation.",
+                        "Ensure minimal disruption during index creation."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 3.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-1.2",
+                    "name": "Login for returning users",
+                    "description": "Allow users to log in using email/password or OIDC authentication.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Users can log in using email/password with robust security.",
+                        "OIDC login is supported for Google and Facebook.",
+                        "Failed login attempts are handled securely with appropriate feedback.",
+                        "Password reset functionality is available and secure."
+                    ],
+                    "technical_notes": [
+                        "Design login UI that follows best practices and is user-friendly.",
+                        "Implement comprehensive logging of authentication attempts."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": [
+                        "TASK-1.2.1",
+                        "TASK-1.2.2",
+                        "TASK-1.2.3",
+                        "TASK-1.2.4"
+                    ]
+                },
+                {
+                    "task_id": "TASK-1.2.1",
+                    "name": "Build the login form with options for email/password and OIDC authentication",
+                    "description": "Develop the login form that supports traditional and OIDC-based authentication methods.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Login form provides both email/password and OIDC options.",
+                        "UI is consistent with the rest of the application."
+                    ],
+                    "technical_notes": [
+                        "Utilize frontend libraries like React for UI.",
+                        "Securely handle token exchanges in login."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 7.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.2.2",
+                    "name": "Validate credentials and implement session or JWT-based authentication",
+                    "description": "Ensure users' credentials are validated, and a session or JWT management system is implemented.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Credentials are validated securely.",
+                        "Session or JWT tokens are implemented correctly."
+                    ],
+                    "technical_notes": [
+                        "Consider using JWT for stateless sessions.",
+                        "Ensure secure handling of JWT or session tokens."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 9.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.2.3",
+                    "name": "Add security measures: rate limiting, account lockout, CSRF protection",
+                    "description": "Implement security features to protect login processes against common threats.",
+                    "status": "TODO",
+                    "priority": "Critical",
+                    "acceptance_criteria": [
+                        "Rate limiting prevents brute force attacks.",
+                        "Accounts are locked after repeated failed attempts.",
+                        "CSRF protection is correctly implemented."
+                    ],
+                    "technical_notes": [
+                        "Implement rate limiting using middleware.",
+                        "Configure CSRF protection in web framework."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 8.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-1.2.4",
+                    "name": "Log authentication attempts and support password reset functionality",
+                    "description": "Ensure all login attempts are logged and password reset processes are secure.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "All login attempts, successful or failed, are logged.",
+                        "Password reset is handled securely and efficiently."
+                    ],
+                    "technical_notes": [
+                        "Use logging framework for audit trails.",
+                        "Ensure reset links are time-limited and securely generated."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 6.0,
+                    "linked_issues": []
+                }
+            ]
+        },
+        {
+            "id": "EPIC-2",
+            "name": "Requester Functionality",
+            "description": "Enable users to manage tuition requests and interact with tutors through a streamlined interface.",
+            "priority": "High",
+            "child_issues": [
+                {
+                    "story_id": "STORY-2.1",
+                    "name": "Creating a Tuition Request",
+                    "description": "Allow users to create and submit tuition requests with detailed information.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Form includes fields for subject, education level, fee, address, timeslots, and start date.",
+                        "Client-side validations are active and functioning.",
+                        "Each request gets a unique ID and is indexed for search."
+                    ],
+                    "technical_notes": [
+                        "Use React for form rendering.",
+                        "Leverage Google Maps API for geolocation assistance."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 40.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.1.1",
+                    "name": "Develop Dynamic Form",
+                    "description": "Develop a dynamic form for submission including fields for subject, education level, fee, address with optional geolocation assistance, calendar for timeslots, and start date.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Form renders correctly on all devices.",
+                        "Geolocation assistance is optional."
+                    ],
+                    "technical_notes": [
+                        "React components for form fields.",
+                        "Google Maps API for geolocation."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 16.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.1.2",
+                    "name": "Client-side Validations and Draft Saving",
+                    "description": "Add client-side validations (e.g., fee format, start date validation) and draft saving functionality.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Validations trigger on form submission.",
+                        "Drafts are saved locally."
+                    ],
+                    "technical_notes": [
+                        "Use local storage for drafts.",
+                        "JavaScript for validation logic."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 8.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.1.3",
+                    "name": "Implement Unique Request ID and Store Status",
+                    "description": "Implement unique request ID generation and store status as 'open'.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Unique ID assigned to each request.",
+                        "Status stored as 'open' upon submission."
+                    ],
+                    "technical_notes": [
+                        "UUID library for ID generation.",
+                        "Database schema updated for status field."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 4.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.1.4",
+                    "name": "Index Request Data",
+                    "description": "Index the request data for optimized search queries.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Requests are indexed immediately after creation.",
+                        "Search performance is optimal."
+                    ],
+                    "technical_notes": [
+                        "Elasticsearch for indexing."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 5.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-2.2",
+                    "name": "Viewing and Managing Tuition Requests",
+                    "description": "Provide users with a dashboard to view and manage their tuition requests.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Dashboard displays all requests with pagination.",
+                        "Users can sort and filter requests.",
+                        "Functionalities for edit, cancel, and archive are available."
+                    ],
+                    "technical_notes": [
+                        "Develop dashboard using React.",
+                        "Integrate with backend APIs for data manipulation."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 30.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.2.1",
+                    "name": "Build Paginated Dashboard",
+                    "description": "Build a paginated dashboard showing list of all requests with key details such as subject, status, and creation date.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Dashboard paginates correctly.",
+                        "All key details are displayed."
+                    ],
+                    "technical_notes": [
+                        "React table component for list rendering.",
+                        "Backend API for pagination."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.2.2",
+                    "name": "Add Sorting, Filtering, and Visual Cues",
+                    "description": "Incorporate sorting and filtering options along with visual cues (color-coding, icons) for different statuses.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Sorting and filtering are functional and intuitive.",
+                        "Visual cues are clear and effective."
+                    ],
+                    "technical_notes": [
+                        "React for front-end sorting and filtering.",
+                        "CSS for styling visual cues."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 8.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.2.3",
+                    "name": "Enable Edit and Cancel Functionalities",
+                    "description": "Enable edit and cancel functionalities for open requests, and archive option for completed ones.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Users can edit open requests.",
+                        "Cancelled requests are handled correctly."
+                    ],
+                    "technical_notes": [
+                        "CRUD operations on backend.",
+                        "Modal dialog for edit and cancel actions."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 12.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-2.3",
+                    "name": "Searching for Matching Tutors",
+                    "description": "Implement a search mechanism for matching tutors with user requests.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Search results accurately reflect criteria.",
+                        "Tutor profiles display with key details."
+                    ],
+                    "technical_notes": [
+                        "Elasticsearch for search queries.",
+                        "React for UI components."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 25.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.3.1",
+                    "name": "Develop Search Mechanism",
+                    "description": "Create the search mechanism to match tutors based on criteria (education level, subject, fee, expertise level).",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Search returns accurate matches.",
+                        "Matching criteria are comprehensive."
+                    ],
+                    "technical_notes": [
+                        "Backend support for search queries.",
+                        "Refine search algorithms for accuracy."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.3.2",
+                    "name": "Develop UI Components for Tutor Profiles",
+                    "description": "Develop UI components to display tutor profiles with key information, including profile completeness and sorting (by expertise, fee, rating).",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Profiles display key information clearly.",
+                        "Sorting options are functional."
+                    ],
+                    "technical_notes": [
+                        "React components for UI.",
+                        "CSS for styling."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 8.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.3.3",
+                    "name": "Integrate Fuzzy Logic and Caching",
+                    "description": "Integrate fuzzy logic and caching mechanisms for performance improvements.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Fuzzy search results are relevant.",
+                        "Caching improves response time."
+                    ],
+                    "technical_notes": [
+                        "Leverage Redis for caching.",
+                        "Implement fuzzy matching with Elasticsearch."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 7.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-2.4",
+                    "name": "Sending Offers to Selected Tutors",
+                    "description": "Enable users to send offers to multiple tutors concurrently.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Multi-selection works as designed.",
+                        "UI feedback and data consistency are ensured."
+                    ],
+                    "technical_notes": [
+                        "React for UI and interactive elements.",
+                        "Transactional support in backend."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 20.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.4.1",
+                    "name": "Implement Multi-selection and Confirmation Dialog",
+                    "description": "Implement multi-selection controls and a confirmation dialog before sending offers.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Multi-selection controls are functional.",
+                        "Confirmation dialog appears correctly."
+                    ],
+                    "technical_notes": [
+                        "React for UI controls.",
+                        "Dialog for confirmation step."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 6.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.4.2",
+                    "name": "Create Offer Entries",
+                    "description": "Develop the functionality to create entries in the Offer table with status set to 'new'.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Offers are created with correct initial status.",
+                        "Database consistency is maintained."
+                    ],
+                    "technical_notes": [
+                        "Database schema supports this feature.",
+                        "APIs for entry creation."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 5.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-2.4.3",
+                    "name": "Integrate Transaction Handling for Consistency",
+                    "description": "Integrate transaction handling to maintain data consistency and provide UI feedback.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Data consistency is never breached.",
+                        "UI feedback is prompt and clear."
+                    ],
+                    "technical_notes": [
+                        "Use transaction management libraries.",
+                        "React for real-time feedback."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 9.0,
+                    "linked_issues": []
+                }
+            ]
+        },
+        {
+            "id": "EPIC-3",
+            "name": "Tutor Functionality",
+            "description": "Development of Tutor Functionalities including profile creation, offer management, and offer acceptance.",
+            "priority": "High",
+            "child_issues": [
+                {
+                    "story_id": "STORY-3.1",
+                    "name": "Tutor Profile Creation",
+                    "description": "Enable tutors to create detailed profiles including subjects, education levels, experience, success metrics, fees, and additional optional information.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Form supports multi-select for subjects and education levels.",
+                        "Numeric fields and range selector are functional.",
+                        "Optional fields for qualifications, certifications are included.",
+                        "Secure image upload available.",
+                        "Preview function operational with expertise level calculation."
+                    ],
+                    "technical_notes": [
+                        "Use secure storage for image uploads.",
+                        "Ensure form is responsive and accessible."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 50.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.1.1",
+                    "name": "Build Profile Form",
+                    "description": "Develop a form with multi-select for subjects and education levels, numeric fields for experience and success metrics, and fee range selector.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Form with multi-select capabilities.",
+                        "Responsive design for numeric fields and range selector."
+                    ],
+                    "technical_notes": [
+                        "Use React for form handling.",
+                        "Validate data on input."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 20.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.1.2",
+                    "name": "Incorporate Optional Fields",
+                    "description": "Add fields for qualifications, certifications, teaching approach, availability calendar, and secure upload for profile images.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "All optional fields are added and functional.",
+                        "Image upload is secure."
+                    ],
+                    "technical_notes": [
+                        "Images stored in the cloud securely.",
+                        "Calendar integrated with availability API."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 15.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.1.3",
+                    "name": "Implement Preview Function",
+                    "description": "Develop functionality to preview profiles and calculate an expertise level based on input metrics with versioning.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Preview shows correct data.",
+                        "Expertise level calculated accurately.",
+                        "Versioning for profile updates implemented."
+                    ],
+                    "technical_notes": [
+                        "Utilize Redux store for state management.",
+                        "Ensure versioning supports roll-back."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 15.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-3.2",
+                    "name": "Viewing and Managing Received Offers",
+                    "description": "Create a dashboard for tutors to manage offers they receive, with filtering, detailed views, and follow-up actions.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Dashboard lists offers with filtering by status.",
+                        "Detailed views are comprehensive with all request details."
+                    ],
+                    "technical_notes": [
+                        "Use a data grid for dashboard display.",
+                        "Integrate third-party library for mappings."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 40.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.2.1",
+                    "name": "Develop Dashboard for Offers",
+                    "description": "Create a dashboard listing all offers with filtering by status and batch selection capabilities.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Offers are listed accurately with filters.",
+                        "Batch selection functionality is present and works."
+                    ],
+                    "technical_notes": [
+                        "Consider using Material-UI for the dashboard design.",
+                        "Performance optimized for large data sets."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 20.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.2.2",
+                    "name": "Create Detailed View Screens",
+                    "description": "Develop detailed view screens for offers that include request details and location mapping.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Detailed view includes correct request details.",
+                        "Location mapping visualizes accurately."
+                    ],
+                    "technical_notes": [
+                        "Integrate with Mapbox for location mapping.",
+                        "Ensure information displayed meets privacy standards."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 15.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.2.3",
+                    "name": "Implement Offer Read and Actions",
+                    "description": "Mark offers as 'read' and support follow-up actions, like requesting more information.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "System marks offers as read correctly.",
+                        "Follow-up actions are functional and intuitive."
+                    ],
+                    "technical_notes": [
+                        "Audit logs for reading and actions.",
+                        "Notifications integrated for follow-ups."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 5.0,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-3.3",
+                    "name": "Accepting Offers",
+                    "description": "Enable tutors to accept offers with a confirmation mechanism, ensuring that update processes are transactional and notifications are sent.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Acceptance mechanism with checkboxes and confirmation dialog.",
+                        "Database transactions ensure state consistency."
+                    ],
+                    "technical_notes": [
+                        "Concurrency managed to prevent race conditions.",
+                        "Audit logs maintained for all acceptance actions."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 30.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.3.1",
+                    "name": "Build Acceptance Mechanism",
+                    "description": "Develop an interface with multi-selection checkboxes and a confirmation dialog for offer acceptance.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Checkboxes and dialog are user-friendly.",
+                        "Confirmation action commits acceptance."
+                    ],
+                    "technical_notes": [
+                        "Angular reactive forms for handling interaction.",
+                        "Confirmation dialog with promise resolution."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.3.2",
+                    "name": "Implement Transactional Updates",
+                    "description": "Database transactions to update request statuses and ensure only one tutor can accept a request.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Transaction rollback on failure.",
+                        "Single-tutor acceptance enforced."
+                    ],
+                    "technical_notes": [
+                        "PostgreSQL transactions for ACID compliance.",
+                        "Unique constraints ensure no duplicates."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-3.3.3",
+                    "name": "Facilitate Notifications for Acceptance",
+                    "description": "Send notifications to requesters when offers are accepted and record acceptance timestamps.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Notifications sent in real-time.",
+                        "Acceptance timestamps logged with accuracy."
+                    ],
+                    "technical_notes": [
+                        "Webhook for real-time notification dispatch.",
+                        "Use of serverless functions for logging."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": 10.0,
+                    "linked_issues": []
+                }
+            ]
+        },
+        {
+            "id": "EPIC-4",
+            "name": "Notification System",
+            "description": "Development of a comprehensive notification system for tutors, including email and in-app notifications.",
+            "priority": "High",
+            "child_issues": [
+                {
+                    "story_id": "STORY-4.1",
+                    "name": "System-driven email notifications for tutors",
+                    "description": "Develop a system that automatically sends email notifications to tutors about new offers.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Email notifications are sent for all new offers every 5 minutes.",
+                        "Emails contain personalized details and direct action links.",
+                        "Offer statuses are updated to 'notified' upon successful email delivery.",
+                        "All notification attempts are logged, with a retry mechanism for failures."
+                    ],
+                    "technical_notes": [
+                        "Use CRON jobs for scheduling.",
+                        "Integrate with existing email services like SendGrid or SMTP."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.1.1",
+                    "name": "Develop background service for scanning new offers",
+                    "description": "Develop a service that scans for new offers every 5 minutes to initiate email notifications.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Service scans all new offers every 5 minutes.",
+                        "Triggers email notifications for new offers."
+                    ],
+                    "technical_notes": [
+                        "Implement using a background job scheduling library."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.1.2",
+                    "name": "Create and integrate email templates",
+                    "description": "Design email templates for notifications, integrating personalized offer details and a direct action link.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Email templates are designed and integrated.",
+                        "Emails contain personalized offer details and direct links."
+                    ],
+                    "technical_notes": [
+                        "Use HTML/CSS for responsive design.",
+                        "Test across major email clients for compatibility."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.1.3",
+                    "name": "Implement offer status update after email delivery",
+                    "description": "Update offer status to 'notified' after successful email delivery, with retry and rate limiting.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Offer statuses are updated post email.",
+                        "Email delivery failures trigger a retry mechanism."
+                    ],
+                    "technical_notes": [
+                        "Rate limiting to prevent system overload.",
+                        "Implement exponential backoff for retries."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.1.4",
+                    "name": "Log and manage email notification attempts",
+                    "description": "Log all attempts to send notifications and manage failures using a retry mechanism.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "All notification attempts are logged.",
+                        "Failure logs trigger retry mechanisms with clear logs."
+                    ],
+                    "technical_notes": [
+                        "Use centralized logging platform for analysis.",
+                        "Implement secure logging to protect user data."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "story_id": "STORY-4.2",
+                    "name": "In-app and enhanced notifications for tutors",
+                    "description": "Enhance tutor notification system with in-app notifications and improved customization options.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "In-app notification center is implemented.",
+                        "Tutors can manage notification preferences for email and app.",
+                        "Engagement metrics for email are tracked and recorded."
+                    ],
+                    "technical_notes": [
+                        "Utilize web sockets for real-time updates.",
+                        "Ensure user data privacy in tracking."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.2.1",
+                    "name": "Implement in-app notification center",
+                    "description": "Develop an in-app notification center that complements email notifications for tutors.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Notification center is accessible within the app.",
+                        "Notifications mirror those sent via email."
+                    ],
+                    "technical_notes": [
+                        "Use modern frontend frameworks for seamless integration.",
+                        "Ensure scalability for future notification types."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.2.2",
+                    "name": "Develop notification preference management",
+                    "description": "Provide tutors with the ability to manage notification preferences including frequency and channel selection.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Tutors can adjust settings on frequency and channel.",
+                        "Preferences are stored and respected during notifications."
+                    ],
+                    "technical_notes": [
+                        "User-friendly UI for managing preferences.",
+                        "Backend support for storing user settings."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-4.2.3",
+                    "name": "Track and analyze engagement metrics",
+                    "description": "Implement tracking for email open and click rates, including secure tokens for direct actions.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Engagement metrics for notifications are collected.",
+                        "Secure tokens facilitate user actions via notifications."
+                    ],
+                    "technical_notes": [
+                        "Data privacy regulations compliance.",
+                        "Use analytics tools to track engagement metrics."
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                }
+            ]
+        },
+        {
+            "id": "EPIC-5",
+            "name": "Match-making System",
+            "description": "Development of a match-making system that pairs requesters with tutors using a smart algorithm, including the display of match quality indicators.",
+            "priority": "High",
+            "child_issues": [
+                {
+                    "story_id": "STORY-5.1",
+                    "name": "Matching requesters and tutors using a smart algorithm",
+                    "description": "Develop a smart algorithm that matches requesters with tutors based on various criteria such as education level, subject match, and more.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Algorithm matches requesters with tutors accurately based on criteria",
+                        "Relevance score is correctly calculated"
+                    ],
+                    "technical_notes": [
+                        "Consider exact education level, subject match, fee compatibility, expertise level",
+                        "Optionally include proximity and availability"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": [
+                        "TUTOR-PROFILE-DAT",
+                        "REQUEST-DATA-FEED"
+                    ]
+                },
+                {
+                    "task_id": "TASK-5.1.1",
+                    "name": "Develop and implement matching algorithm",
+                    "description": "Create an algorithm considering education level, subject match, fee compatibility, expertise, and optionally proximity and availability.",
+                    "status": "TODO",
+                    "priority": "High",
+                    "acceptance_criteria": [
+                        "Algorithm implements all criteria accurately",
+                        "Relevance score sorts matches properly"
+                    ],
+                    "technical_notes": [
+                        "Utilize libraries for algorithm development",
+                        "Ensure code quality and efficiency"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-5.1.2",
+                    "name": "Deploy algorithm caching and indexing",
+                    "description": "Implement caching mechanisms, efficient indexing, and prepare for horizontal scaling of the algorithm.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Caching and indexing are implemented",
+                        "System supports scaling"
+                    ],
+                    "technical_notes": [
+                        "Use dedicated caching solutions like Redis",
+                        "Optimize index structures"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-5.1.3",
+                    "name": "Track performance metrics",
+                    "description": "Implement tools to track metrics such as response time and match quality for the algorithm.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Performance metrics are tracked consistently"
+                    ],
+                    "technical_notes": [
+                        "Integrate with existing performance monitoring systems"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": [
+                        "PERFORMANCE-MONITORING"
+                    ]
+                },
+                {
+                    "story_id": "STORY-5.2",
+                    "name": "Display of match quality indicators",
+                    "description": "Create a system for displaying match quality through visual and numerical indicators for tutors and requesters.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Indicators are designed and implemented",
+                        "Explanations for match criteria are clear"
+                    ],
+                    "technical_notes": [
+                        "Use UI libraries for design",
+                        "Ensure indicators are user-friendly"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": [
+                        "UI-COMPONENTS"
+                    ]
+                },
+                {
+                    "task_id": "TASK-5.2.1",
+                    "name": "Design indicators for match quality",
+                    "description": "Develop visual and numerical indicators for match quality, such as match percentage or score.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Indicators accurately reflect match quality"
+                    ],
+                    "technical_notes": [
+                        "Incorporate feedback from users in design"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-5.2.2",
+                    "name": "Provide match criteria explanations",
+                    "description": "Create detailed explanations for match criteria, highlight mismatches and offer suggestions for improvement.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Criteria explanations are detailed",
+                        "Suggestions for improvement are implemented"
+                    ],
+                    "technical_notes": [
+                        "Ensure clarity and accessibility of information"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                },
+                {
+                    "task_id": "TASK-5.2.3",
+                    "name": "Integrate historical match success and feedback",
+                    "description": "Collect historical data on match success and integrate feedback loop to continuously improve the algorithm.",
+                    "status": "TODO",
+                    "priority": "Medium",
+                    "acceptance_criteria": [
+                        "Feedback loop is effective",
+                        "Algorithm adjusts based on feedback"
+                    ],
+                    "technical_notes": [
+                        "Use statistical methods to analyze feedback"
+                    ],
+                    "assignee": null,
+                    "estimated_hours": null,
+                    "linked_issues": []
+                }
+            ]
+        }
+    ]
+}
